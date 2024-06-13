@@ -1,15 +1,27 @@
-﻿class Jogador
+﻿var jogador1 = new Jogador("ChikoLoko");
+jogador1.Deck.Add(new CartaDeMonstro("Dragão Baiano de olhos azuis", 3000, 2500));
+
+foreach (var carta in jogador1.Deck)
+{
+    Console.WriteLine(carta.Nome);
+    Console.WriteLine(carta.PoderDeAtaque);
+}
+
+class Partida
+{
+    public int Turno { get; set; }
+
+}
+class Jogador
 {
     public string Nome { get; set; }
     public int Vida { get; set; }
-    
-    public Jogador(string nome, int vida)
+    public List<CartaDeMonstro> Deck { get; set; } = new List<CartaDeMonstro>();
+    public Jogador(string nome)
     {
         Nome = nome;
-        Vida = vida;
+        Vida = 8000;
     }
-    
-
 }
 
 class Carta
